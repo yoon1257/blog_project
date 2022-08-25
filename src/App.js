@@ -8,6 +8,7 @@ function App() {
   let [like, setLike] = useState(0);
   let [like2, setLike2] = useState(0);
   let [like3, setLike3] = useState(0);//0 = 저장해놓을 값
+  let [modal,setModal] = useState(false)
 
  
 
@@ -39,11 +40,13 @@ function App() {
         <p>2월 16일 발행</p>
       </div>
       <div className='list'>
-        <h4>{subject[2]}<span onClick={()=>{setLike3(like3+1)}}>👍</span>{like3}</h4>
+        <h4 onClick={()=>{setModal(!modal)}}>{subject[2]}<span onClick={()=>{setLike3(like3+1)}}>👍</span>{like3}</h4>
         <p>2월 16일 발행</p>
       </div>
 
-    <Modal/>
+    {
+      modal == true ? <Modal/> : null
+    }
 
     </div>
   );
